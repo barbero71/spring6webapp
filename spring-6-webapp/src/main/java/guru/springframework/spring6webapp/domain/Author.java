@@ -47,4 +47,27 @@ public class Author {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", books=" + books +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Author author)) return false;
+
+        return getId() == author.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (getId() ^ (getId() >>> 32));
+    }
 }
